@@ -5,8 +5,7 @@ Tags: Python Tutorial Profiling
 Category: Python
 Slug: Graphical-Python-profiling-with-gprof2dot
 Authors: Quentin Couland
-Summary: Short version for index and feeds
-Gallery: {photo}img
+Summary: A quick overview of a graphical Python profiling tool
 
 In this article, I'll talk a bit about Python profiling. If you don't know yet about cProfile, you can check the Python doc [here](https://docs.python.org/3/library/profile.html#module-cProfile). It a very powerful tool, allowing you to check for bottlenecks in your code, time functions, etc. Basically, you run your Python code using the command
 
@@ -41,10 +40,10 @@ gprof2dot.exe -f pstats profiled | dot.exe -Tpng -o output.png
 ```
 
 I was able to obtain a nice graph looking like this:
-![Example of an output graph.]({attach}img/output.svg)
+![Example of an output graph.]({attach}img/output.png)
 
 In this case, I'm developping a Roguelike and everytime I moved, there was a delay between the key press and the rendering. Can you find what the problem seems to be? (the answer is at the end of this article) After fixing the problem, the game run at a much more acceptable speed. Here is the second output graph:
-![Output graph after fixing the problem.]({attach}img/output_2.svg)
+![Output graph after fixing the problem.]({attach}img/output_2.png)
 
 Indeed, it is possible to further customise the output graph (I'm not covering this here). This is a very powerful tool, allowing to check the ressources used by (and also to check the workflow of) your program. Oh, and here's the answer to the problem: the rendering function was called 2 times for each update, once by the update function, once by the main loop :)
 

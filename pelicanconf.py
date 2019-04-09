@@ -11,6 +11,11 @@ STATIC_PATHS = ['img']
 
 TIMEZONE = 'Europe/Paris'
 
+THEME = "themes/MinimalXY"
+
+AUTHOR_INTRO = u'Hello world! I’m Kontin.'
+AUTHOR_DESCRIPTION = u'Hello world! I’m Kontin. I like tea, cats and Python.'
+
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
