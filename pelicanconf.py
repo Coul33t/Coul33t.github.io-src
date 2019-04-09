@@ -7,6 +7,7 @@ SITENAME = 'Quick tutorials'
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = ['img']
 
 TIMEZONE = 'Europe/Paris'
 

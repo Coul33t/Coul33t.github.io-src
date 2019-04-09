@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Quick tutorials - Python</title>
+        <title>Graphical Python profiling with gprof2dot</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -13,10 +13,15 @@
                     <li class="active"><a href="/category/python.html">Python</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/Graphical-Python-profiling-with-gprof2dot.html" rel="bookmark"
+           title="Permalink to Graphical Python profiling with gprof2dot">Graphical Python profiling with gprof2dot</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/Graphical-Python-profiling-with-gprof2dot.html">Graphical Python profiling with gprof2dot</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-04-09T15:00:00+02:00">
                 Published: mar. 09 avril 2019
@@ -31,7 +36,7 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>.</p>
 <p>tags: <a href="/tag/python-tutorial-profiling.html">Python Tutorial Profiling</a> </p>
-</footer><!-- /.post-info --><p>In this article, I'll talk a bit about Python profiling. If you don't know yet about cProfile, you can check the Python doc <a href="https://docs.python.org/3/library/profile.html#module-cProfile">here</a>. It a very powerful tool, allowing you to check for bottlenecks in your code, time functions, etc. Basically, you run your Python code using the command</p>
+</footer><!-- /.post-info -->      <p>In this article, I'll talk a bit about Python profiling. If you don't know yet about cProfile, you can check the Python doc <a href="https://docs.python.org/3/library/profile.html#module-cProfile">here</a>. It a very powerful tool, allowing you to check for bottlenecks in your code, time functions, etc. Basically, you run your Python code using the command</p>
 <p><code>python -m cProfile -o profiled main.py</code></p>
 <p>And then, you'll have an output like this:</p>
 <div class="highlight"><pre><span></span>ncalls  tottime  percall  cumtime  percall filename:lineno(function)
@@ -65,8 +70,11 @@ gprof2dot.exe -f pstats profiled | dot.exe -Tpng -o output.png
 <p>In this case, I'm developping a Roguelike and everytime I moved, there was a delay between the key press and the rendering. Can you find what the problem seems to be? (the answer is at the end of this article) After fixing the problem, the game run at a much more acceptable speed. Here is the second output graph:
 <img alt="Output graph after fixing the problem." src="/img/output_2.svg"></p>
 <p>Indeed, it is possible to further customise the output graph (I'm not covering this here). This is a very powerful tool, allowing to check the ressources used by (and also to check the workflow of) your program. Oh, and here's the answer to the problem: the rendering function was called 2 times for each update, once by the update function, once by the main loop :)</p>
-<p>Cheers!</p>                </article>
-            </aside><!-- /#featured -->
+<p>Cheers!</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
