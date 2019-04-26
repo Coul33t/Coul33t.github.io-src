@@ -37,3 +37,18 @@ The latter is a bit faster than the former.
 | Algorithm | Naive   | Naive (pre-computed limit) | zip()   | pairwise() |
 |-----------|---------|----------------------------|---------|------------|
 | Time      | 0.46799 |           0.33899          | 0.07999 |   0.07700  |
+
+
+## 2) Quickly rename files in a folder
+
+```
+import os
+[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATHTOFOLDER')]
+```
+
+You can add a condition, like a string found in the file name:
+
+```
+import os
+[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATHTOFOLDER') if 'STRINGTOFIND' in f]
+```
