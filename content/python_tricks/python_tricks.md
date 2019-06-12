@@ -43,12 +43,22 @@ The latter is a bit faster than the former.
 
 ```
 import os
-[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATHTOFOLDER')]
+[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATH_TO_FOLDER')]
 ```
 
 You can add a condition, like a string found in the file name:
 
 ```
 import os
-[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATHTOFOLDER') if 'STRINGTOFIND' in f]
+[os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATH_TO_FOLDER') if 'STRING_TO_FIND' in f]
+```
+
+## 3) Quickly rename files in a folder and all subfolders
+```
+import os
+for root, dirs, files in os.walk(r'PATH_TO_FOLDER'):
+    for i in files:
+        if 'STRING_TO_FIND' in i:
+            print(os.path.join(root, i))
+            os.rename(os.path.join(root, i), os.path.join(root, i.replace('SUBSTRING_TO_REPLACE', 'SUBSTRING_REPLACEMENT')))
 ```
