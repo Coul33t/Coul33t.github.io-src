@@ -7,7 +7,6 @@ Slug: What-are-Markov-Chains-and-how-to-use-them-to-generate-sentences
 Authors: Quentin Couland
 Summary: A quick explanation about Markov Chains, and how to use them to do fun stuff
 
-# How to use stupid sentences to make even more stupid ones?
 Henlo ma friands!
 
 Some times ago, I developped a [bot](https://twitter.com/globabot) that allows me to generate sentences from gathered tweets. The code of the bot is available [here](https://github.com/Coul33t/twitter_bot), and here's an example of an input, and an output :
