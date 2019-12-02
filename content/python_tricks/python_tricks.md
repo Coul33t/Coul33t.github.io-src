@@ -41,6 +41,8 @@ The latter is a bit faster than the former.
 
 ## 2) Quickly rename files in a folder
 
+In the next snippets, 'OLD' is the old name of the file, and 'NEW', well, the new one.
+
 ```
 import os
 [os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATH_TO_FOLDER')]
@@ -53,6 +55,16 @@ import os
 [os.rename(f, f.replace('OLD', 'NEW')) for f in os.listdir('PATH_TO_FOLDER') if 'STRING_TO_FIND' in f]
 ```
 
+Un-rolled version:
+
+```
+import os
+
+for f in os.listdir('PATH_TO_FOLDER'):
+    if 'STRING_TO_FIND' in f:
+        os.rename(f, f.replace('OLD', 'NEW'))
+```
+
 ## 3) Quickly rename files in a folder and all subfolders
 ```
 import os
@@ -60,5 +72,22 @@ for root, dirs, files in os.walk(r'PATH_TO_FOLDER'):
     for i in files:
         if 'STRING_TO_FIND' in i:
             print(os.path.join(root, i))
-            os.rename(os.path.join(root, i), os.path.join(root, i.replace('SUBSTRING_TO_REPLACE', 'SUBSTRING_REPLACEMENT')))
+            os.rename(os.path.join(root, i), os.path.join(root, i.replace('OLD', 'NEW')))
+```
+
+## 4) Find a rogue print-statement
+This will print the file and the line where it comes from.
+
+```
+import sys
+import traceback
+
+class TracePrints(object):
+  def __init__(self):
+    self.stdout = sys.stdout
+  def write(self, s):
+    self.stdout.write("Writing %r\n" % s)
+    traceback.print_stack(file=self.stdout)
+
+sys.stdout = TracePrints()
 ```
